@@ -1,9 +1,9 @@
 <?php get_header(); ?>
-<h4>Single Posts</h4>
+<h4>Singular Posts</h4>                
 <div class="container">
 	<div class="row">
 		<?php
-						if(have_posts()): //have posts or not
+						if(have_posts()): //have posts or not        //single.php > singular.php > index.php
 							
 								while(have_posts()): //loop section
 								the_post();

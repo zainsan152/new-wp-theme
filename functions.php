@@ -38,4 +38,19 @@ function theme_support()
 }
 
 add_action("after_setup_theme" , "theme_support");
+
+
+function custom_posts_init()
+{
+	$args = array(
+		'public' => true,
+		'label' => 'Movies'
+	);
+	register_post_type('movie' , $args);
+	//single-movie.php
+}
+
+add_action('init' , 'custom_posts_init');
+
+
  ?>

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<h4>Single Posts</h4>
+<h4>Movie Posts</h4>
 <div class="container">
 	<div class="row">
 		<?php

@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<h4>Single Posts</h4>
+<h4>Page Contact</h4>
 <div class="container">
 	<div class="row">
 		<?php
@@ -7,8 +7,13 @@
 							
 								while(have_posts()): //loop section
 								the_post();
+								?>
+
+								<h3><?php the_title(); ?></h3>
+								<p><?php the_content(); ?></p>
+								<?php
 								
-								get_template_part("template-parts/content" , get_post_format());
+								
 
 						endwhile;
 						endif;
