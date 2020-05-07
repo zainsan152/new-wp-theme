@@ -52,5 +52,36 @@ function custom_posts_init()
 
 add_action('init' , 'custom_posts_init');
 
+function register_menu()
+{
+	//add_theme_support('menus');	
+	register_nav_menus(array(
+
+		"header" => "Primary Menu",
+		"footer" => "Footer Menu" 
+	));
+}
+
+add_action('init' , 'register_menu');
+
+add_filter("nav_menu_link_attributes" , "zain_each_anchor_class");
+
+function zain_each_anchor_class($attr)
+{
+	$attr['class'] = "zain-anchor-class";
+	return $attr;
+}
+
+add_filter("nav_menu_css_class" , "zain_each_li_class" , 10 , 4);
+
+function zain_each_li_class($classes , $attr , $args , $dept)
+{
+	$classes[] = "zain-li-class";
+	return $classes;
+}
+
+
+
+
 
  ?>
