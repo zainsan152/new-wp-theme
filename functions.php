@@ -80,6 +80,126 @@ function zain_each_li_class($classes , $attr , $args , $dept)
 	return $classes;
 }
 
+/**
+ * Add a sidebar.
+ */
+function wpdocs_theme_slug_widgets_init() {
+    register_sidebar( array(
+        'name'          => "Right Sidebar",
+        'id'            => 'right-sidebar',
+        'description'   => "This is my right sidebar",
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => "Left Sidebar",
+        'id'            => 'left-sidebar',
+        'description'   => "This is my left sidebar",
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'wpdocs_theme_slug_widgets_init' );
+
+//theme customizer
+function newtheme_customize_register($wp_customize)
+{
+	$wp_customize->add_section('theme_main_section', array(
+        'title'    => "Credits change in footer",
+        'description' => '',
+        'priority' => 120,
+    ));
+
+    //  =============================
+    //  = Text Input                =
+    //  =============================
+    $wp_customize->add_setting('zain_web_first_setting', array(
+        'default'        => 'Design and Developed by zain',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+ 
+    ));
+ 
+    $wp_customize->add_control('zain_first_control', array(
+        'label'      => "Footer Text",
+        'section'    => 'theme_main_section',
+        'settings'   => 'zain_web_first_setting',
+    ));
+
+    //  =============================
+    //  = Footer button link              =
+    //  =============================
+    $wp_customize->add_setting('zain_footer_link', array(
+        'default'        => 'Zain Ul Abideen',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+ 
+    ));
+ 
+    $wp_customize->add_control('zain_first_footer_control', array(
+        'label'      => "Footer Link",
+        'section'    => 'theme_main_section',
+        'settings'   => 'zain_footer_link',
+    ));
+
+    //  =============================
+    //  = Page Dropdown             =
+    //  =============================
+    $wp_customize->add_setting('setting_footer_link', array(
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+ 
+    ));
+ 
+    $wp_customize->add_control('zain_footer_pages_control', array(
+        'label'      => "Footer Page Link",
+        'section'    => 'theme_main_section',
+        'type'    => 'dropdown-pages',
+        'settings'   => 'setting_footer_link',
+    ));
+
+    //  =============================
+    //  = Image Upload              =
+    //  =============================
+    $wp_customize->add_setting('zain_image_uploader', array(
+        'default'           => get_bloginfo("template_url").'/images/category4.png',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option',
+ 
+    ));
+ 
+    $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'image_upload_test', array(
+        'label'    => 'Choose Image',
+        'section'  => 'theme_main_section',
+        'settings' => 'zain_image_uploader',
+    )));
+
+     //  =============================
+    //  = Color Picker              =
+    //  =============================
+    $wp_customize->add_setting('zain_colorpicker', array(
+        'default'           => '#000',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'capability'        => 'edit_theme_options',
+        'type'           => 'option',
+ 
+    ));
+ 
+    $wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'link_color', array(
+        'label'    => 'Book New background color',
+        'section'  => 'theme_main_section',
+        'settings' => 'zain_colorpicker',
+    )));
+}
+
+
+add_action( 'customize_register', 'newtheme_customize_register' );
+
 
 
 

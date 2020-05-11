@@ -1,16 +1,6 @@
 <?php get_header(); ?>
-
-<?php 
-if(is_home())
-{
-	echo "Home page";
-} 
-else
-{
-	echo "Front page";
-}
-?>
-<h4>Welcome Posts</h4>
+<h4>Search Page</h4>
+<p>Search for: <?php echo get_search_query(); ?></p>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-10">
@@ -25,13 +15,14 @@ else
 								//default -> content.php
 								//content-{post-formats}.php > content.php > index.php
 								get_template_part("template-parts/content" , get_post_format());
-
-						endwhile;
+								endwhile;
+					else:
+						echo "<h4 class = 'alert alert-danger'>no post found</h4>";
 						endif;
 		?> 
 		</div>
 		<div class="col-sm-2">
-			<?php get_sidebar(); ?>
+			<?php get_search_form(); ?>
 		</div>
 		
 	</div>

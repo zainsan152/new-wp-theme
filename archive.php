@@ -1,20 +1,33 @@
 <?php get_header(); ?>
-
+<h4>Archive Page</h4>
 <?php 
-if(is_home())
+if(is_author())
 {
-	echo "Home page";
-} 
-else
-{
-	echo "Front page";
+	echo "author";
 }
+elseif(is_category())
+{
+	echo single_cat_title();
+}
+elseif (is_day())
+ {
+ 	# code...
+ 	echo "day";
+ } 
+ elseif (is_month()) 
+ {
+ 	# code...
+ 	echo "month";
+ }
+ elseif (is_year())
+  {
+ 	# code...
+ 	echo "year";
+ }
 ?>
-<h4>Welcome Posts</h4>
 <div class="container">
 	<div class="row">
-		<div class="col-sm-10">
-			<?php
+		<?php
 						if(have_posts()): //have posts or not
 							
 								while(have_posts()): //loop section
@@ -29,11 +42,6 @@ else
 						endwhile;
 						endif;
 		?> 
-		</div>
-		<div class="col-sm-2">
-			<?php get_sidebar(); ?>
-		</div>
-		
 	</div>
 	
 		

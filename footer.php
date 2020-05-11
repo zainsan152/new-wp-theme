@@ -61,7 +61,8 @@
                     </div>
 
                     <div class="copyright">
-                        &copy; 2017 All right reserved. Designed by <a href="http://www.themevault.net/" target="_blank">ThemeVault.</a>
+                        <?php $page_id = get_option('setting_footer_link'); ?>
+                        &copy; <?php echo get_option('zain_web_first_setting'); ?><a href="<?php get_the_permalink($page_id);?>" target="_blank"><?php echo get_option('zain_footer_link'); ?></a>
                     </div>
 
                 </div>
@@ -74,5 +75,6 @@
             </a>
 
         </div>
+        <?php wp_footer(); ?>
     </body>
 </html>

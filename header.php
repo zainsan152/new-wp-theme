@@ -53,7 +53,10 @@
                                 </div>                       
                             </div>
                             <div class="col-sm-6 visible-sm">
-                                <div class="text-right"><button type="button" class="book-now-btn">Book Now</button></div>
+                                <div class="text-right">
+                                    <button type="button" class="book-now-btn" 
+                                    style="background-color: <?php get_option('zain_colorpicker');?>">Book Now</button>
+                                </div>
                             </div>
                             <div class="col-md-8 col-sm-12 col-xs-12 remove-padd">
                                 <nav class="navbar navbar-default">
@@ -112,9 +115,16 @@
                                 </nav>
                             </div>
                             <div class="col-md-2  col-sm-4 col-xs-12 hidden-sm">
-                                <div class="text-right"><button type="button" class="book-now-btn">Book Now</button></div>
+                                <div class="text-right">
+                                    <button type="button" class="book-now-btn"  style="background-color: <?php get_option('zain_colorpicker');?>" >Book Now</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
+            
+            <div class="col-sm-12">
+                
+            </div>
+            
