@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header("about"); ?> <!-- header-about.php--->
 
 <?php 
 if(is_home())
@@ -31,7 +31,7 @@ else
 		?> 
 		</div>
 		<div class="col-sm-2">
-			<?php get_sidebar(); ?>
+			<?php get_sidebar("home"); ?>
 		</div>
 		
 	</div>
@@ -41,4 +41,4 @@ else
 
 
 
-<?php get_footer(); ?>
+<?php get_footer("about"); ?>
